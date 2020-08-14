@@ -27,3 +27,10 @@ The third parameter defines a variable name to by sent inside a form. It will ha
 [ids], and [values] = variableName[ids], variableName[values] respectivelly. As selected ids are also 
 sent via a hidden textbox along the values. If it would be undesired the hidden element could be disabled
 by Jquery or added parametrizable option not to use it.
+
+## Features:
+The library is self-reliant, in terms that it manages it's own assets and third party assets via
+the packagesAssetsSupport library. And loads the script only once, even when being called multiple times 
+or in a loop. So nothing more is needed to setup anywhere, except of calling the assets install command,
+and it should work everywhere straight ahead.
+
