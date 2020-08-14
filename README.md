@@ -20,7 +20,7 @@
 ```
 
 
-where the first parameter defined a name according to which group a textbox and the selectbox together
+where the first parameter defines a name according to which to group a textbox and the selectbox together
 into the combobox. The second parameter is array in form of an index for an option and values to be shown as option texts.
 
 The third parameter defines a variable name to by sent inside a form. It will have two "subfields",
