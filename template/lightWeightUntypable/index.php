@@ -30,13 +30,19 @@
 
             $.getScript('<?php echo  (new \fantomx1\PackagesAssetsSupport())->getAssetsDir("", '')
                 .'/assets/js/helpers.js' ?>', function () {
-                //  alert('xzx');
-                if (typeof regSelectComboWidgetHandlers != "undefined") {
-                    regSelectComboWidgetHandlers();
-                } else {
-                    // alert('none')
-                };
-            });
+                    //  alert('xzx');
+                    if (typeof regSelectComboWidgetHandlers != "undefined") {
+                        // regSelectComboWidgetHandlers();
+
+                        //var handler = new regSelectComboWidgetHandlers();
+                    } else {
+                        // alert('none')
+                    };
+                }
+            );
+
+            // @TODO: doesn't seem to work here outside yet
+            // var handler = new regSelectComboWidgetHandlers();
 
 
 
