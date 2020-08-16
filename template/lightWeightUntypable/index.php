@@ -59,11 +59,15 @@
 <br>
 
 <div style="position: relative">
+    <div class="filterSelect" data-column="<?php echo $groupId; ?>"
+         style="visibility:hidden; position: absolute; top: 0px"
+         class="filterSelect"
+    >
     <select size=4" multiple=1
-            style="visibility:hidden; position: absolute; top: 0px"
+            class="filterSelect"
             name="selectSubmenu"
             data-column="<?php echo $groupId; ?>"
-            class="filterSelect"
+
     >
 
         <?php
@@ -75,6 +79,17 @@
             }
         ?>
     </select>
+<br>
+
+
+    <?php
+
+
+    echo $customHtml;
+
+
+    ?>
+    </div>
 </div>
 
 <input type="hidden" name="filter" class="select">

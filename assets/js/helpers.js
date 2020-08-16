@@ -20,43 +20,35 @@ function regSelectComboWidgetHandlers(){
 
     regSelectComboWidgetHandlers.was =1;
 
+    // hide drop down menues, name it somehow
     $('html').on('click',
         function(event){
-            //console.log();
-            //console.log($(this));
 
+            //var par = $(event.target).parent();
+            // not throwing undefined index yet
+            var par = $(event.target).parents('div.filterSelect')[0];
 
+            // console.log(par);
 
-            var par = $(event.target).parent();
-            //alert(par[0].classList);
-            // alert(
-            //     !$(event.target).parent().hasClass('filterSelect')
-            // );
-
-            if (!par.hasClass('filterSelect')) {
-                $('select.filterSelect').css('visibility', 'hidden');
+            // if we clicked anywhere in html except of selector, then hide it
+            if (typeof par == "undefined") {
+                $('div.filterSelect').css('visibility', 'hidden');
             }
         }
     );
 
+    // groupped by parent, and to hide later on same element save into a common property
     //$('input[type=text].filter').each(function() {
     $('input[type=text].filter').click(function(event) {
-            //alert($(this).data('column'))
-            //alert($('select[data-column='+$(this).data('column')));
+
             // data could go as well as a class
 
             event.stopPropagation(); // not to bubble to html
 
             //alert( $('select[data-column='+$(this).data('column')));
-            var el = $('select.filterSelect[data-column='+$(this).data('column'));
-            // console.log(
-            //     el
-            // );
-            //alert(el);
-            el.css('visibility', 'visible');
-            //$('select[data-column='+$(this).data('column')).attr('size',4);
-            //$('select[data-column='+$(this).data('column')).click();
+            var el = $('div.filterSelect[data-column='+$(this).data('column'));
 
+            el.css('visibility', 'visible');
         }
     );
 
@@ -69,7 +61,8 @@ function regSelectComboWidgetHandlers(){
         //$(this).find(":selected").each(function(){alert($(this))});
         //alert($(this).find(":selected").each);
 
-        //
+        // @TODO: identify a group in context of this library and named accordingly preprend the class of this plugin
+        // instead of naem attribute with non forn elements
         var allText = $(this).find(":selected").map(function(){
                 return $(this).text();
             }).get(),
@@ -81,21 +74,12 @@ function regSelectComboWidgetHandlers(){
             allTextHidden = allTextHidden.join(',');
 
 
-        // var allTextPrior $(this).find(":selected").map(function(){
-        //     return $(this).text();
-        // }).get();
-        //
-        // var allText = allTextPrior.join(',');
-
-        //alert(allText);
 
         //$('select[data-column='+$(this).data('column'));
-        $('input.filter[data-column='+$(this).data('column')).val(allText);
-        $('input.filterHidden[data-column='+$(this).data('column')).val(allTextHidden);
-        //alert('dasd');
-        // alert(
-        //     $('input.filter[data-column='+$(this).data('column'))
-        // );
+        //console.log(   $('input.filter[data-column='+$(this).data('column')+']'));
+        $('input.filter[data-column='+$(this).data('column')+']').val(allText);
+        $('input.filterHidden[data-column='+$(this).data('column')+']').val(allTextHidden);
+
 
 
     });
