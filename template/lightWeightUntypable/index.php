@@ -34,7 +34,7 @@
                     if (typeof regSelectComboWidgetHandlers != "undefined") {
                         // regSelectComboWidgetHandlers();
 
-                        //var handler = new regSelectComboWidgetHandlers();
+                        var handler = new regSelectComboWidgetHandlers();
                     } else {
                         // alert('none')
                     };
