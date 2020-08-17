@@ -55,11 +55,31 @@
 
 </script>
 
+<?php
 
-<input type="text" readonly data-column="<?php echo $groupId; ?>" class="filter" name="<?php echo $name ?>[values][<?php echo $groupId; ?>]">
+/* <input type="text" readonly data-column="<?php echo $groupId; ?>" class="filter" name="<?php echo $name ?>[values][<?php echo $groupId; ?>]"> */
+/* <input type="text" readonly data-column="<?php echo $groupId; ?>" class="filterHidden disabled" name="<?php echo $name ?>[ids][<?php echo $groupId; ?>]" size=10 */
+?>
+
+<input
+        type="text"
+        readonly
+        data-column="<?php echo $groupId; ?>"
+        class="filter"
+        name="<?php echo $name ?>[v][<?php echo $groupId; ?>]"
+        value="<?php echo $prefilled['values'] ?>"
+>
 <!--<input type="text" readonly data-column="--><?php //echo $columnName; ?><!--" class="filterHidden disabled" name="filter[ids][--><?php //echo $columnName; ?><!--]" size=10-->
-<input type="text" readonly data-column="<?php echo $groupId; ?>" class="filterHidden disabled" name="<?php echo $name ?>[ids][<?php echo $groupId; ?>]" size=10
-       style="visibility: hidden"
+
+<input
+        type="text"
+        readonly
+        data-column="<?php echo $groupId; ?>"
+        class="filterHidden disabled"
+        name="<?php echo $name ?>[i][<?php echo $groupId; ?>]"
+        size=10
+        style="visibility: hidden"
+        value="<?php echo $prefilled['ids'] ?>"
 >
 
 <br>
@@ -78,9 +98,14 @@
 
         <?php
 
+            $ids = explode(',', $prefilled['ids']);
+
+
             foreach ($data as $index => $value) {
+
+                $selected = in_array($index, $ids) ? 'selected':'';
                 ?>
-                <option value="<?php echo $index ?>"><?php echo $value ?></option>
+                <option <?php echo $selected ?> value="<?php echo $index ?>"><?php echo $value ?></option>
                 <?php
             }
         ?>

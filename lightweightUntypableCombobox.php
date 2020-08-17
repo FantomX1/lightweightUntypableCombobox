@@ -31,7 +31,9 @@ class lightweightUntypableCombobox
     public function run(
         $groupId,
         $data,
-        $name = "filter"
+        $name = "filter",
+        $prefilledValues = [],
+        $prefilledIds = []
     )
     {
 
@@ -46,6 +48,10 @@ class lightweightUntypableCombobox
                 'groupId'    => $groupId,
                 'data'       => $data,
                 'name'       => $name,
+                'prefilled' => [
+                    'ids'=>$prefilledIds,
+                    'values'=>$prefilledValues,
+                ]
             ]
         );
     }
