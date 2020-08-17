@@ -49,8 +49,8 @@ class lightweightUntypableCombobox
                 'data'       => $data,
                 'name'       => $name,
                 'prefilled' => [
-                    'ids'=>$prefilledIds,
-                    'values'=>$prefilledValues,
+                    'ids' => $prefilledIds,
+                    'values' => $prefilledValues,
                 ]
             ]
         );

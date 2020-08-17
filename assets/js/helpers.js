@@ -54,6 +54,10 @@ class regSelectComboWidgetHandlers
                 //alert($('select[data-column='+$(this).data('column')));
                 // instead of a class element could be used a data-column
 
+                // @TODO: call method inside event and reuse it here?
+                // clicking one menu, hide all other menues
+                $('div.filterSelect').css('visibility', 'hidden');
+
                 event.stopPropagation(); // not to bubble to html
 
                 //alert( $('select[data-column='+$(this).data('column')));
